@@ -1,0 +1,20 @@
+welcome: domain is `atelier-je.com`, server by micronaut.
+
+micronaut:
+  application:
+    name: home
+  server:
+    port: 8080
+    cors:
+      enabled: true
+
+jackson:
+  serialization.write-dates-as-timestamps: false
+  serialization-inclusion: ALWAYS
+
+datasources:
+  default:
+    url: jdbc:mysql://47.99.109.64:3306/blog
+    username: root
+    password: lindaiyuXqw0
+    driverClassName: com.mysql.cj.jdbc.Driver
