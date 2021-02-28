@@ -16,6 +16,7 @@ public enum CodeAndMessage {
 
     // login;
     pwdError("home-11000", "password error"),
+    userNameError("home-11001", "userName error"),
 
     ;
 
