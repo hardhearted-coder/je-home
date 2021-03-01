@@ -11,13 +11,26 @@ import lombok.ToString;
 @EqualsAndHashCode
 public class Token {
 
-    private final Long userId;
+    private final User user;
 
-    private final String value;
+    private final Value token;
 
     public Token(User user) {
-        userId = user.getId();
-        value = IdUtil.fastSimpleUUID().toUpperCase();
+        this.user = user;
+        token = new Value(IdUtil.fastSimpleUUID().toUpperCase());
+    }
+
+    @Getter
+    @ToString
+    @EqualsAndHashCode
+    public static class Value {
+
+        private final String value;
+
+        public Value(String value) {
+            this.value = value;
+        }
+
     }
 
 }

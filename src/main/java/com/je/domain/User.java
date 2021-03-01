@@ -1,6 +1,7 @@
 package com.je.domain;
 
 import cn.hutool.core.util.IdUtil;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.je.domain.valueobject.Password;
 import lombok.Getter;
 import lombok.ToString;
@@ -15,6 +16,7 @@ public class User {
 
     private String name;
 
+    @JsonIgnore
     private Password password;
 
     private Instant registeredTime;
@@ -28,6 +30,10 @@ public class User {
 
     public boolean canLogin(Password password) {
         return this.password.equals(password);
+    }
+
+    public void resetPassword(Password password) {
+        this.password = password;
     }
 
 }

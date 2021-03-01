@@ -1,5 +1,8 @@
 package com.je.interfaces;
 
+import com.je.domain.User;
+import com.je.domain.valueobject.Password;
+import com.je.domain.valueobject.Token;
 import com.je.infrastructure.helper.TimeHelper;
 import io.micronaut.http.HttpHeaders;
 import io.micronaut.http.HttpRequest;
@@ -34,8 +37,9 @@ public class HttpContextUtils {
         return request.getRemoteAddress().getHostName();
     }
 
-    public static String getUserAgent(HttpRequest request) {
-        return request.getHeaders().get(HttpHeaders.USER_AGENT);
+    public static Optional<Token> getToken(HttpRequest request) {
+        // todo
+        return Optional.of(new Token(new User("test", new Password("test-password"))));
     }
 
 }
