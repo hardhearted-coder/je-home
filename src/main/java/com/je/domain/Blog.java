@@ -5,6 +5,7 @@ import cn.hutool.core.util.StrUtil;
 import com.je.interfaces.BizException;
 import com.je.interfaces.CodeAndMessage;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 import java.time.Instant;
@@ -13,13 +14,15 @@ import java.time.Instant;
 @ToString
 public class Blog {
 
-    private Long id;
+    private final Long id;
 
+    @Setter
     private String title;
 
+    @Setter
     private String content;
 
-    private Instant createdTime;
+    private final Instant createdTime;
 
     public Blog(String title, String content) {
         if (StrUtil.isBlank(title)) {

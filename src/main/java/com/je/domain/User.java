@@ -12,14 +12,14 @@ import java.time.Instant;
 @ToString
 public class User {
 
-    private Long id;
+    private final Long id;
 
     private String name;
 
     @JsonIgnore
     private Password password;
 
-    private Instant registeredTime;
+    private final Instant registeredTime;
 
     public User(String name, Password password) {
         this.name = name;
