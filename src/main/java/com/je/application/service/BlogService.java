@@ -11,6 +11,7 @@ import com.je.interfaces.CodeAndMessage;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.util.List;
+import java.util.Optional;
 
 @Singleton
 public class BlogService {
@@ -42,6 +43,10 @@ public class BlogService {
                     return blog;
                 })
                 .orElseThrow(() -> new BizException(CodeAndMessage.argIllegal, "id not found"));
+    }
+
+    public Optional<Blog> find(long id) {
+        return blogRepo.find(id);
     }
 
     public List<Blog> list() {

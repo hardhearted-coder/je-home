@@ -12,6 +12,9 @@ import lombok.extern.slf4j.Slf4j;
 import javax.inject.Singleton;
 import java.util.Optional;
 
+/**
+ * todo Bad Request Error will not be handled
+ */
 @Slf4j
 @Produces
 @Singleton

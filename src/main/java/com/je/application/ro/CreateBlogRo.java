@@ -9,4 +9,10 @@ public class CreateBlogRo {
 
     private String content;
 
+    /**
+     * default constructor will be used by Controller
+     */
+    public CreateBlogRo() {
+    }
+
 }
