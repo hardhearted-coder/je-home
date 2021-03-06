@@ -36,4 +36,15 @@ public class User {
         this.password = password;
     }
 
+
+    /**
+     * this constructor can only be called by po.
+     */
+    public User(Long id, String name, Password password, Instant registeredTime) {
+        this.id = id;
+        this.name = name;
+        this.password = password;
+        this.registeredTime = registeredTime;
+    }
+
 }

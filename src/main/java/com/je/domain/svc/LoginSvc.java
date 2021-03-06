@@ -2,7 +2,7 @@ package com.je.domain.svc;
 
 import com.je.domain.User;
 import com.je.domain.valueobject.Password;
-import com.je.domain.valueobject.Token;
+import com.je.domain.Token;
 import com.je.interfaces.BizException;
 import com.je.interfaces.CodeAndMessage;
 
@@ -15,7 +15,7 @@ public class LoginSvc {
         if (!user.canLogin(password)) {
             throw new BizException(CodeAndMessage.pwdError);
         }
-        return new Token(user);
+        return new Token(user.getId());
     }
 
 }

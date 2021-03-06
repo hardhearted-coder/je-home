@@ -14,7 +14,14 @@ jackson:
 
 datasources:
   default:
-    url: jdbc:mysql://47.99.109.64:3306/blog
+    url: jdbc:mysql://47.99.109.64:3306/je_home
     username: root
     password: lindaiyuXqw0
     driverClassName: com.mysql.cj.jdbc.Driver
+    auto-commit: false
+
+jpa:
+  default:
+    properties:
+      hibernate:
+        show_sql: true

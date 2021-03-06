@@ -5,6 +5,7 @@ import cn.hutool.crypto.digest.MD5;
 import com.je.interfaces.BizException;
 import com.je.interfaces.CodeAndMessage;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.ToString;
 
 import java.util.Locale;
@@ -13,6 +14,7 @@ import java.util.Locale;
 @EqualsAndHashCode
 public class Password {
 
+    @Getter
     private final String value;
 
     public Password(String value) {
@@ -25,6 +27,14 @@ public class Password {
     private String encode(String value) {
         MD5 md5 = MD5.create();
         return md5.digestHex(new String(md5.digest(value))).toUpperCase(Locale.ROOT);
+    }
+
+
+    /**
+     * this constructor can only be called by po.
+     */
+    public Password(String encodedValue, boolean foo) {
+        this.value = encodedValue;
     }
 
 }

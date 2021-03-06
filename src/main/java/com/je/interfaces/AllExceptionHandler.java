@@ -29,7 +29,9 @@ public class AllExceptionHandler implements ExceptionHandler<Exception, HttpResp
         if (exception instanceof BizException) {
             result = Result.fromBizException((BizException) exception);
         } else {
-            result = Result.error(CodeAndMessage.error, Optional.ofNullable(ExceptionUtil.getRootCauseMessage(exception)).orElse(NOT_GOT_ERROR_MESSAGE));
+            String message = Optional.ofNullable(ExceptionUtil.getRootCauseMessage(exception)).orElse(NOT_GOT_ERROR_MESSAGE);
+            log.error(message);
+            result = Result.error(CodeAndMessage.error, message);
         }
         if (HttpMethod.OPTIONS != request.getMethod()) {
             log.error("<Request> RemoteAddress: {}, Method: {}, Path: {}, Duration: {}",

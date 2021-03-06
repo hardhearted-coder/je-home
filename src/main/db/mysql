@@ -1,0 +1,20 @@
+create table user
+(
+	id bigint null,
+	name varchar(32) not null,
+	password varchar(64) not null,
+	registered_time datetime not null,
+	constraint user_pk primary key (id)
+);
+create unique index idx_name on user (name);
+
+create table token
+(
+	id varchar(32) not null,
+	uid bigint not null,
+	expire datetime not null,
+	constraint token_pd primary key (id)
+);
+create unique index idx_uid on token (uid);
+
+insert into user (id, name, password, registered_time) values (12345678, 'root', '483C19C8B8073E467D8D469F42D0660B', current_date());
